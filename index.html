@@ -256,6 +256,8 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.5);
             padding-bottom: 50px;
             overflow: hidden;
+            /* Bajado aproximadamente un 10% adicional (margen superior aumentado) */
+            margin-top: 40px; 
         }
 
         .img-side-header { width: 100%; height: 350px; overflow: hidden; }
@@ -387,7 +389,7 @@
                         Santa Anita, Tlaquepaque, Jal.
                     </p>
                     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;">
-                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem;">15:00</span>
+                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem;">13:00</span>
                         <span style="letter-spacing: 3px; font-size: 0.6rem; opacity: 0.5;">HORAS</span>
                     </div>
                     <a href="https://www.google.com/maps/place/Terraza+la+abundancia/@20.5381181,-103.4101599,1231m/data=!3m2!1e3!4b1!4m6!3m5!1s0x842f530004005b13:0x6fc7b0361e142356!8m2!3d20.5381181!4d-103.4101599!16s%2Fg%2F11xlgmv8pb?entry=ttu" target="_blank" class="btn-maps">Ver Ubicación</a>
@@ -525,7 +527,7 @@
             }, 800);
         };
 
-        const target = new Date("July 18, 2026 15:00:00").getTime(); 
+        const target = new Date("July 18, 2026 13:00:00").getTime(); 
         setInterval(() => {
             const diff = target - new Date().getTime();
             if(diff > 0) {
