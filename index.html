@@ -65,7 +65,7 @@
             width: 100%;
             top: 0;
             left: 0;
-            transition: opacity 1s, visibility 1s, transform 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+            transition: opacity 0.4s, visibility 0.4s, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
         .envelope {
@@ -78,6 +78,27 @@
             transform-style: preserve-3d;
         }
 
+        .click-hint {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            z-index: 15;
+            pointer-events: none;
+            text-transform: uppercase;
+            animation: pulseHint 2s infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes pulseHint {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
         .envelope .flap {
             position: absolute;
             width: 0; height: 0;
@@ -86,7 +107,7 @@
             border-top: 115px solid #1e293b;
             top: 0; left: 0;
             transform-origin: top;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 5;
         }
 
@@ -146,7 +167,7 @@
             color: rgba(0,0,0,0.4);
             font-size: 28px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: all 0.4s ease;
+            transition: all 0.2s ease;
         }
 
         .envelope .letter {
@@ -155,7 +176,7 @@
             top: 5%; left: 5%;
             background: #fff;
             z-index: 2;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -169,8 +190,9 @@
 
         .envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 1; }
         .envelope-wrapper.open .wax-seal { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+        .envelope-wrapper.open .click-hint { opacity: 0; }
         .envelope-wrapper.open .letter { transform: translateY(-130px); z-index: 6; }
-        .envelope-wrapper.exit { opacity: 0; visibility: hidden; transform: scale(1.1); }
+        .envelope-wrapper.exit { opacity: 0; visibility: hidden; transform: scale(1.05); }
 
         /* SECCIONES Y GALERIA */
         section {
@@ -195,16 +217,31 @@
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 700px;
+            gap: 30px; /* Aumentado el espacio */
+            max-width: 900px; /* Cuadrícula más ancha */
             width: 100%;
         }
 
         .img-parallax {
             width: 100%;
-            aspect-ratio: 1/1;
+            aspect-ratio: 4/5; /* Formato más alto y elegante */
             overflow: hidden;
             border: 1px solid rgba(197, 160, 89, 0.2);
+            background: rgba(255, 255, 255, 0.03); /* Fondo sutil para cuando la foto es vertical */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-parallax img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Asegura que se vea completa */
+            transition: transform 0.5s ease;
+        }
+
+        .img-parallax:hover img {
+            transform: scale(1.05);
         }
 
         .reception-box {
@@ -275,7 +312,10 @@
 
         @media (max-width: 768px) {
             .carousel-container { height: 50vh; }
-            .hero-portada h1 { font-size: 2.15rem !important; }
+            .hero-portada h1 { font-size: 1.5rem !important; }
+            .section-name h1 { font-size: 2.45rem !important; }
+            .grid-4 { gap: 15px; }
+            .img-parallax { aspect-ratio: 1/1; } /* En móvil se mantiene cuadrado para mejor espacio */
         }
     </style>
 </head>
@@ -283,9 +323,9 @@
 
     <div id="particles-js"></div>
 
-    <!-- SOBRE -->
     <div class="envelope-wrapper" id="wrapper">
         <div class="envelope" id="envelope">
+            <div class="click-hint">Toca para abrir</div>
             <div class="flap"></div>
             <div class="pocket"></div>
             <div class="right-flap"></div>
@@ -306,19 +346,19 @@
         
         <section class="hero-portada">
             <div class="reveal">
-                <h2 style="text-transform: uppercase; letter-spacing: 8px; font-size: 0.8rem; margin-bottom: 15px; font-weight: 200;">Estás invitado a</h2>
-                <h1 style="font-family: 'Cinzel'; font-size: 2.15rem; letter-spacing: 12px; color: var(--gold); font-weight: 200; margin: 0; line-height: 1.2; text-shadow: 0 0 20px rgba(197,160,89,0.5);">MI CUMPLEAÑOS</h1>
+                <h2 style="text-transform: uppercase; letter-spacing: 8px; font-size: 0.6rem; margin-bottom: 15px; font-weight: 200;">Estás invitado a</h2>
+                <h1 style="font-family: 'Cinzel'; font-size: 1.5rem; letter-spacing: 12px; color: var(--gold); font-weight: 200; margin: 0; line-height: 1.2; text-shadow: 0 0 20px rgba(197,160,89,0.5);">MI CUMPLEAÑOS</h1>
             </div>
         </section>
 
         <section class="section-name">
             <div class="reveal">
-                <p style="letter-spacing: 10px; opacity: 0.6; margin-bottom: 20px; font-size: 0.7rem;">CELEBREMOS JUNTOS A</p>
-                <h1 style="font-family: 'Cinzel'; font-size: 3.5rem; letter-spacing: 12px; margin-bottom: 40px;">MATÍAS JACOB</h1>
+                <p style="letter-spacing: 10px; opacity: 0.6; margin-bottom: 20px; font-size: 0.6rem;">CELEBREMOS JUNTOS A</p>
+                <h1 style="font-family: 'Cinzel'; font-size: 2.45rem; letter-spacing: 12px; margin-bottom: 40px;">MATÍAS JACOB</h1>
                 <div class="fecha-destacada">
-                    <span style="font-family: 'Cinzel'; letter-spacing: 6px; font-size: 1.2rem; color: var(--gold);">SÁBADO 18 JULIO 2026</span>
+                    <span style="font-family: 'Cinzel'; letter-spacing: 6px; font-size: 1rem; color: var(--gold);">SÁBADO 18 JULIO 2026</span>
                 </div>
-                <p style="margin-top: 50px; font-family: 'Playfair Display'; font-style: italic; max-width: 550px; line-height: 2; font-size: 1.1rem; opacity: 0.9;">
+                <p style="margin-top: 50px; font-family: 'Playfair Display'; font-style: italic; max-width: 550px; line-height: 2; font-size: 0.95rem; opacity: 0.9;">
                     "El tiempo pasa, pero los mejores momentos se quedan grabados para siempre. Quiero que seas parte de esta noche mágica."
                 </p>
             </div>
@@ -326,7 +366,7 @@
 
         <section style="background: rgba(3, 8, 18, 0.6);">
             <div class="reveal">
-                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; margin-bottom: 50px; font-size: 1.2rem; color: var(--gold);">GALERÍA PRIVADA</h2>
+                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; margin-bottom: 50px; font-size: 1.1rem; color: var(--gold);">GALERÍA PRIVADA</h2>
                 <div class="grid-4" id="grid4"></div>
             </div>
         </section>
@@ -337,18 +377,17 @@
                     <img src="https://github.com/regina1503/xv-hombre/blob/main/Captura%20de%20pantalla%202026-04-16%20081950.png?raw=true" alt="Terraza La Abundancia">
                 </div>
                 <div class="reception-content">
-                    <h2 style="font-family: 'Cinzel'; color: var(--gold); margin: 0; letter-spacing: 5px; font-size: 1.8rem;">RECEPCIÓN</h2>
+                    <h2 style="font-family: 'Cinzel'; color: var(--gold); margin: 0; letter-spacing: 5px; font-size: 1.5rem;">RECEPCIÓN</h2>
                     <div style="width: 30px; height: 2px; background: var(--gold); margin: 25px 0;"></div>
-                    <p style="margin: 0; font-size: 1.2rem; letter-spacing: 3px; font-weight: 600; color: #fff;">TERRAZA LA ABUNDANCIA</p>
-                    <p style="font-size: 0.9rem; opacity: 0.7; line-height: 1.8; margin: 15px 0 35px; max-width: 400px;">
+                    <p style="margin: 0; font-size: 1rem; letter-spacing: 3px; font-weight: 600; color: #fff;">TERRAZA LA ABUNDANCIA</p>
+                    <p style="font-size: 0.8rem; opacity: 0.7; line-height: 1.8; margin: 15px 0 35px; max-width: 400px;">
                         Calle Rastro 101, Centro,<br>
                         Santa Anita, Tlaquepaque, Jal.
                     </p>
                     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;">
-                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.4rem;">19:00</span>
-                        <span style="letter-spacing: 3px; font-size: 0.7rem; opacity: 0.5;">HORAS</span>
+                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem;">19:00</span>
+                        <span style="letter-spacing: 3px; font-size: 0.6rem; opacity: 0.5;">HORAS</span>
                     </div>
-                    <!-- ENLACE ACTUALIZADO AQUÍ -->
                     <a href="https://www.google.com/maps/place/Terraza+la+abundancia/@20.5381181,-103.4101599,1231m/data=!3m2!1e3!4b1!4m6!3m5!1s0x842f530004005b13:0x6fc7b0361e142356!8m2!3d20.5381181!4d-103.4101599!16s%2Fg%2F11xlgmv8pb?entry=ttu" target="_blank" class="btn-maps">Ver Ubicación</a>
                 </div>
             </div>
@@ -356,12 +395,12 @@
 
         <section style="background: rgba(3, 8, 18, 0.6);">
             <div class="reveal">
-                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1.2rem; margin-bottom: 40px;">MÁS MOMENTOS</h2>
+                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1.1rem; margin-bottom: 40px;">MÁS MOMENTOS</h2>
                 <div class="carousel-outer" style="width: 100%; max-width: 700px;">
                     <div class="carousel-container" id="carousel"></div>
                     <div style="margin-top: 20px; display: flex; gap: 20px; justify-content: center;">
-                        <button id="prevBtn" style="background:none; border:1px solid var(--gold); color:var(--gold); padding:10px 20px; cursor:pointer; font-size: 1.5rem;">❮</button>
-                        <button id="nextBtn" style="background:none; border:1px solid var(--gold); color:var(--gold); padding:10px 20px; cursor:pointer; font-size: 1.5rem;">❯</button>
+                        <button id="prevBtn" style="background:none; border:1px solid var(--gold); color:var(--gold); padding:10px 20px; cursor:pointer; font-size: 1.2rem;">❮</button>
+                        <button id="nextBtn" style="background:none; border:1px solid var(--gold); color:var(--gold); padding:10px 20px; cursor:pointer; font-size: 1.2rem;">❯</button>
                     </div>
                 </div>
             </div>
@@ -369,12 +408,12 @@
 
         <section style="background: linear-gradient(to bottom, transparent, #000);">
             <div class="reveal">
-                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1.3rem; color: var(--gold); margin-bottom: 50px;">FALTAN</h2>
+                <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1.2rem; color: var(--gold); margin-bottom: 50px;">FALTAN</h2>
                 <div id="timer" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                    <div class="timer-box"><span id="d" style="font-size: 2.2rem;">00</span><p style="font-size: 0.6rem; opacity: 0.6;">DÍAS</p></div>
-                    <div class="timer-box"><span id="h" style="font-size: 2.2rem;">00</span><p style="font-size: 0.6rem; opacity: 0.6;">HORAS</p></div>
-                    <div class="timer-box"><span id="m" style="font-size: 2.2rem;">00</span><p style="font-size: 0.6rem; opacity: 0.6;">MINUTOS</p></div>
-                    <div class="timer-box"><span id="s" style="font-size: 2.2rem;">00</span><p style="font-size: 0.6rem; opacity: 0.6;">SEGUNDOS</p></div>
+                    <div class="timer-box"><span id="d" style="font-size: 1.8rem;">00</span><p style="font-size: 0.5rem; opacity: 0.6;">DÍAS</p></div>
+                    <div class="timer-box"><span id="h" style="font-size: 1.8rem;">00</span><p style="font-size: 0.5rem; opacity: 0.6;">HORAS</p></div>
+                    <div class="timer-box"><span id="m" style="font-size: 1.8rem;">00</span><p style="font-size: 0.5rem; opacity: 0.6;">MINUTOS</p></div>
+                    <div class="timer-box"><span id="s" style="font-size: 1.8rem;">00</span><p style="font-size: 0.5rem; opacity: 0.6;">SEGUNDOS</p></div>
                 </div>
             </div>
         </section>
@@ -383,7 +422,6 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Init Particles
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 80 },
@@ -394,7 +432,6 @@
             }
         });
 
-        // Photos Data
         const photoUrls = [
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.29%20AM.jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.45.07%20AM.jpeg?raw=true",
@@ -427,16 +464,15 @@
             if(i < 4) {
                 const div = document.createElement('div');
                 div.className = 'img-parallax';
-                div.innerHTML = `<img src="${finalUrl}" style="width:100%; height:100%; object-fit:cover;">`;
+                div.innerHTML = `<img src="${finalUrl}" alt="Foto Galería ${i+1}">`;
                 grid4.appendChild(div);
             }
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
-            slide.innerHTML = `<img src="${finalUrl}" loading="lazy">`;
+            slide.innerHTML = `<img src="${finalUrl}" loading="lazy" alt="Foto Carrusel ${i+1}">`;
             carousel.appendChild(slide);
         });
 
-        // Carousel Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         function showSlide(n) {
@@ -448,14 +484,12 @@
         document.getElementById('nextBtn').onclick = () => showSlide(currentSlide + 1);
         document.getElementById('prevBtn').onclick = () => showSlide(currentSlide - 1);
 
-        // Reveal animations
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
         });
 
-        // Envelope Logic
         document.getElementById('envelope').onclick = () => {
             const wrapper = document.getElementById('wrapper');
             wrapper.classList.add('open');
@@ -463,10 +497,9 @@
                 wrapper.classList.add('exit');
                 document.getElementById('main-content').style.display = 'block';
                 document.getElementById('music').play().catch(() => {});
-            }, 2500);
+            }, 800);
         };
 
-        // Countdown Timer
         const target = new Date("July 18, 2026 19:00:00").getTime();
         setInterval(() => {
             const diff = target - new Date().getTime();
