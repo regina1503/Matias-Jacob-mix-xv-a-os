@@ -144,7 +144,7 @@
             width: 0; height: 0;
             border-top: 110px solid transparent;
             border-bottom: 110px solid transparent;
-            border-right: 160px solid #0f172a;
+            border-right: 160 solid #0f172a;
             top: 0; right: 0;
             z-index: 3;
         }
@@ -217,17 +217,17 @@
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px; /* Aumentado el espacio */
-            max-width: 900px; /* Cuadrícula más ancha */
+            gap: 30px; 
+            max-width: 900px;
             width: 100%;
         }
 
         .img-parallax {
             width: 100%;
-            aspect-ratio: 4/5; /* Formato más alto y elegante */
+            aspect-ratio: 4/5;
             overflow: hidden;
             border: 1px solid rgba(197, 160, 89, 0.2);
-            background: rgba(255, 255, 255, 0.03); /* Fondo sutil para cuando la foto es vertical */
+            background: rgba(255, 255, 255, 0.03);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -236,7 +236,7 @@
         .img-parallax img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Asegura que se vea completa */
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -315,7 +315,7 @@
             .hero-portada h1 { font-size: 1.5rem !important; }
             .section-name h1 { font-size: 2.45rem !important; }
             .grid-4 { gap: 15px; }
-            .img-parallax { aspect-ratio: 1/1; } /* En móvil se mantiene cuadrado para mejor espacio */
+            .img-parallax { aspect-ratio: 1/1; }
         }
     </style>
 </head>
@@ -323,6 +323,7 @@
 
     <div id="particles-js"></div>
 
+    <!-- El sobre -->
     <div class="envelope-wrapper" id="wrapper">
         <div class="envelope" id="envelope">
             <div class="click-hint">Toca para abrir</div>
@@ -338,6 +339,7 @@
         </div>
     </div>
 
+    <!-- Elemento de audio -->
     <audio id="music" loop>
         <source src="https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Audio%202026-04-09%20at%206.11.01%20PM.mp4?raw=true" type="audio/mp4">
     </audio>
@@ -385,7 +387,7 @@
                         Santa Anita, Tlaquepaque, Jal.
                     </p>
                     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;">
-                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem;">19:00</span>
+                        <span style="color: var(--gold); font-family: 'Cinzel'; font-size: 1.2rem;">15:00</span>
                         <span style="letter-spacing: 3px; font-size: 0.6rem; opacity: 0.5;">HORAS</span>
                     </div>
                     <a href="https://www.google.com/maps/place/Terraza+la+abundancia/@20.5381181,-103.4101599,1231m/data=!3m2!1e3!4b1!4m6!3m5!1s0x842f530004005b13:0x6fc7b0361e142356!8m2!3d20.5381181!4d-103.4101599!16s%2Fg%2F11xlgmv8pb?entry=ttu" target="_blank" class="btn-maps">Ver Ubicación</a>
@@ -408,6 +410,9 @@
 
         <section style="background: linear-gradient(to bottom, transparent, #000);">
             <div class="reveal">
+                <p style="font-family: 'Playfair Display'; font-style: italic; color: var(--gold); font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; line-height: 1.6;">
+                    "Nada brilla tanto como su sonrisa, y hoy celebramos la alegría que nos regala cada día."
+                </p>
                 <h2 style="font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1.2rem; color: var(--gold); margin-bottom: 50px;">FALTAN</h2>
                 <div id="timer" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <div class="timer-box"><span id="d" style="font-size: 1.8rem;">00</span><p style="font-size: 0.5rem; opacity: 0.6;">DÍAS</p></div>
@@ -453,7 +458,19 @@
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM.jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(4).jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(3).jpeg?raw=true",
-            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(2).jpeg?raw=true"
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(2).jpeg?raw=true",
+            /* Nuevas Fotos */
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.46%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.47%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.48%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.50%20AM%20(1).jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.52%20AM%20(1).jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.52%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.57%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.58%20AM%20(1).jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.45.00%20AM.jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.45.03%20AM%20(1).jpeg?raw=true",
+            "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.45.03%20AM%20(2).jpeg?raw=true"
         ];
 
         const grid4 = document.getElementById('grid4');
@@ -490,17 +507,25 @@
             });
         });
 
+        // Lógica de apertura del sobre e inicio de canción recortada (30 segundos después)
         document.getElementById('envelope').onclick = () => {
             const wrapper = document.getElementById('wrapper');
+            const music = document.getElementById('music');
+            
             wrapper.classList.add('open');
+            
             setTimeout(() => {
                 wrapper.classList.add('exit');
                 document.getElementById('main-content').style.display = 'block';
-                document.getElementById('music').play().catch(() => {});
+                
+                // Iniciamos la canción recortada: empieza en el segundo 30
+                music.currentTime = 30; 
+                music.play().catch(e => console.log("Interacción requerida para audio:", e));
+                
             }, 800);
         };
 
-        const target = new Date("July 18, 2026 19:00:00").getTime();
+        const target = new Date("July 18, 2026 15:00:00").getTime(); 
         setInterval(() => {
             const diff = target - new Date().getTime();
             if(diff > 0) {
