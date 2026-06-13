@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matías Jacob - Experiencia VIP</title>
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Matías Jacob - Mi Cumpleaños">
     <meta property="og:description" content="Una celebración inolvidable en Terraza La Abundancia.">
     <meta property="og:image" content="https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.29%20AM.jpeg?raw=true">
@@ -52,7 +51,6 @@
             filter: blur(0);
         }
 
-        /* SOBRE TOTALMENTE CERRADO */
         .envelope-wrapper {
             height: 100vh;
             display: flex;
@@ -194,7 +192,6 @@
         .envelope-wrapper.open .letter { transform: translateY(-130px); z-index: 6; }
         .envelope-wrapper.exit { opacity: 0; visibility: hidden; transform: scale(1.05); }
 
-        /* SECCIONES Y GALERIA */
         section {
             min-height: 100vh;
             display: flex;
@@ -256,7 +253,6 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.5);
             padding-bottom: 50px;
             overflow: hidden;
-            /* Bajado aproximadamente un 10% adicional (margen superior aumentado) */
             margin-top: 40px; 
         }
 
@@ -325,7 +321,6 @@
 
     <div id="particles-js"></div>
 
-    <!-- El sobre -->
     <div class="envelope-wrapper" id="wrapper">
         <div class="envelope" id="envelope">
             <div class="click-hint">Toca para abrir</div>
@@ -341,9 +336,9 @@
         </div>
     </div>
 
-    <!-- Elemento de audio -->
+    <!-- Audio element with the new track -->
     <audio id="music" loop>
-        <source src="https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Audio%202026-04-09%20at%206.11.01%20PM.mp4?raw=true" type="audio/mp4">
+        <source src="https://github.com/regina1503/xv-hombre/blob/main/Banda%20Maguey%20-%20el%20Alacran%20tumbando%20ca%C3%B1a%20%5BPrshKby8_kc%5D.mp3?raw=true" type="audio/mpeg">
     </audio>
 
     <div id="main-content" style="display: none;">
@@ -461,7 +456,6 @@
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(4).jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(3).jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.59%20AM%20(2).jpeg?raw=true",
-            /* Nuevas Fotos */
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.46%20AM.jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.47%20AM.jpeg?raw=true",
             "https://github.com/regina1503/xv-hombre/blob/main/WhatsApp%20Image%202026-04-13%20at%2010.44.48%20AM.jpeg?raw=true",
@@ -509,7 +503,7 @@
             });
         });
 
-        // Lógica de apertura del sobre e inicio de canción recortada (30 segundos después)
+        // Lógica de apertura del sobre e inicio de canción recortada
         document.getElementById('envelope').onclick = () => {
             const wrapper = document.getElementById('wrapper');
             const music = document.getElementById('music');
@@ -520,8 +514,8 @@
                 wrapper.classList.add('exit');
                 document.getElementById('main-content').style.display = 'block';
                 
-                // Iniciamos la canción recortada: empieza en el segundo 30
-                music.currentTime = 30; 
+                // Iniciamos la canción en el segundo 17
+                music.currentTime = 17; 
                 music.play().catch(e => console.log("Interacción requerida para audio:", e));
                 
             }, 800);
